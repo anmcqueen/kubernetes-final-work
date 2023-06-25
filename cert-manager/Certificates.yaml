@@ -1,0 +1,58 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: ssl-cert-staging
+  namespace: sock-shop
+spec:
+  secretName: ssl-cert-staging
+  issuerRef:
+    name: letsencrypt-staging
+    kind: ClusterIssuer
+  commonName: sock-shop.anynamefits.ru
+  dnsNames:
+  - sock-shop.anynamefits.ru
+  
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: ssl-cert-production
+  namespace: sock-shop
+spec:
+  secretName: ssl-cert-production
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer
+  commonName: sock-shop.anynamefits.ru
+  dnsNames:
+  - sock-shop.anynamefits.ru
+  
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: grafana-cert-staging
+  namespace: monitoring
+spec:
+  secretName: grafana-cert-staging
+  issuerRef:
+    name: letsencrypt-staging
+    kind: ClusterIssuer
+  commonName: grafana.anynamefits.ru
+  dnsNames:
+  - grafana.anynamefits.ru
+  
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: grafana-cert-production
+  namespace: monitoring
+spec:
+  secretName: grafana-cert-production
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer
+  commonName: grafana.anynamefits.ru
+  dnsNames:
+  - grafana.anynamefits.ru
