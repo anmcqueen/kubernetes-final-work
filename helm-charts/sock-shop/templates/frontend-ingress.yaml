@@ -1,13 +1,11 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  namespace: sock-shop
   name: front-end-ingress
 spec:
   ingressClassName: nginx
   rules:
-  - host: sock-shop.anynamefits.ru
-    http:
+  - http:
       paths:
       - path: /
         pathType: Prefix
@@ -16,7 +14,14 @@ spec:
             name: front-end
             port:
               number: 80
+    {{- if .Values.ingress.host }}
+    host: {{ .Values.ingress.host }}
+    {{- end }}
+  {{- if .Values.ingress.tlsSecretName }}
   tls:
-  - secretName: ssl-cert-production
+  - secretName: {{ .Values.ingress.tlsSecretName }}
+    {{- if .Values.ingress.host }}
     hosts:
-      - sock-shop.anynamefits.ru
+    - {{ .Values.ingress.host }}
+    {{- end }}
+  {{- end }}
