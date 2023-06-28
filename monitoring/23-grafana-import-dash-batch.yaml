@@ -35,7 +35,7 @@ spec:
               if [ -e "$file" ] ; then
                 echo "importing $file" &&
                 curl --silent --fail --show-error \
-                  --request POST http://admin:admin@grafana/api/datasources \
+                  --request POST https://admin:xLUcylnXM539OkUEEzmXD0flvpjitu9ETTR2OTT4@grafana.anynamefits.ru/api/datasources \
                   --header "Content-Type: application/json" \
                   --header "Accept: application/json" \
                   --data-binary "@$file" ;
@@ -46,7 +46,7 @@ spec:
               if [ -e "$file" ] ; then
                 echo "importing $file" &&
                 curl --silent --fail --show-error \
-                  --request POST http://admin:xLUcylnXM539OkUEEzmXD0flvpjitu9ETTR2OTT4@grafana.anynamefits.ru/api/dashboards/import \
+                  --request POST https://admin:xLUcylnXM539OkUEEzmXD0flvpjitu9ETTR2OTT4@grafana.anynamefits.ru/api/dashboards/import \
                   --header "Content-Type: application/json" \
                   --header "Accept: application/json" \
                   --data-binary "@$file" ;
