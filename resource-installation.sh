@@ -45,3 +45,11 @@ kl apply -f Ingress/grafana-ingress-no-tls.yaml
 
 # Затем заходим в grafana https://grafana.anynamefits.ru
 # Настраиваем DataSource Prometheus: prometheus-server:80
+
+
+# ArgoCD
+kubectl create namespace argocd
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+kl apply -f argoCD/argoCD-ingress.yaml
+argocd admin initial-password -n argocd
+# В интерфейсе применить argoCD/argoCD-application-helm.yaml
