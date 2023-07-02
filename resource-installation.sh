@@ -54,3 +54,11 @@ kl get secret -n monitoring grafana -o json
 # Настраиваем DataSource Prometheus: prometheus-server:80
 # Настраиваем DataSource Loki: loki.anynamefits.ru
 # Настраиваем Dashboards
+
+
+# ArgoCD
+kubectl create namespace argocd
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+kl apply -f argoCD/argoCD-ingress.yaml
+argocd admin initial-password -n argocd
+# В интерфейсе применить argoCD/argoCD-application-helm.yaml
