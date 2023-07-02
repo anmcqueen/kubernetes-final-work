@@ -4,6 +4,8 @@
 # Создан alias
 alias kl=kubectl
 
+cd kubernetes-final-work
+
 # Установка YandexCloud CLI
 curl -sSL https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
 yc init
@@ -25,25 +27,30 @@ helm install \
 kl apply -f cert-manager/ClusterIssuer-letsencrypt.yaml
 
 
-# Установка Sock Shop (будет переделано)
+# Установка Sock Shop
 kl create ns sock-shop
 kl apply -f sock-shop/sock-shop-certificates.yaml
-helm upgrade --install --create-namespace sock-shop -n sock-shop kubernetes-final-work/helm-charts/sock-shop
+helm upgrade --install --create-namespace sock-shop -n sock-shop helm-charts/sock-shop
 
 
-# Monitoring
+# Monitoring & Logging
 # Prometheus
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 helm upgrade --install --create-namespace --values monitoring/prometheus-values.yaml prometheus -n monitoring prometheus-community/prometheus
-
+##kl apply -f monitoring/prometheus-ingress-no-tls.yaml
+# Loki & Promtail
+helm upgrade --install --create-namespace --values monitoring/loki-values.yaml loki -n monitoring grafana/loki
+kl apply -f monitoring/loki-ingress-no-tls.yaml
+helm upgrade --install --create-namespace --values monitoring/promtail-values.yaml promtail -n monitoring grafana/promtail
 # Grafana
 helm repo add grafana https://grafana.github.io/helm-charts
-helm upgrade --install --create-namespace --values grafana-values.yaml grafana -n monitoring grafana/grafana
-# Получила логин-пароль из секрета grafana
-kl get secret -n monitoring grafana -o json
+helm upgrade --install --create-namespace --values monitoring/grafana-values.yaml grafana -n monitoring grafana/grafana
 kl apply -f monitoring/grafana-certificates.yaml
-# Ingress для sock-shop (frontend)
-kl apply -f Ingress/grafana-ingress-no-tls.yaml
+kl apply -f monitoring/grafana-ingress.yaml
+# Получим логин-пароль из секрета grafana
+kl get secret -n monitoring grafana -o json
 
 # Затем заходим в grafana https://grafana.anynamefits.ru
 # Настраиваем DataSource Prometheus: prometheus-server:80
+# Настраиваем DataSource Loki: loki.anynamefits.ru
+# Настраиваем Dashboards
