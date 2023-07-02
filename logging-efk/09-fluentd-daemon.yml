@@ -21,7 +21,7 @@ spec:
         effect: NoSchedule
       containers:
       - name: fluentd
-        image: fluent/fluentd-kubernetes-daemonset:v1.4.2-debian-elasticsearch-1.1 #fluent/fluentd-kubernetes-daemonset:v1.16-debian-elasticsearch8-1
+        image: fluent/fluentd-kubernetes-daemonset:v1.16-debian-elasticsearch8-1 #fluent/fluentd-kubernetes-daemonset:v1.14-debian-elasticsearch7-1 #fluent/fluentd-kubernetes-daemonset:v1.4.2-debian-elasticsearch-1.1 #
         env:
           - name:  FLUENT_ELASTICSEARCH_HOST
             value: "elasticsearch.logging.svc.cluster.local"
@@ -46,7 +46,7 @@ spec:
           mountPath: /fluentd/etc
         - name: varlog
           mountPath: /var/log
-        - name: varlibdockercontainers
+        - name: dockercontainerlogdirectory
           mountPath: /var/lib/docker/containers
           readOnly: true
       terminationGracePeriodSeconds: 30
@@ -57,6 +57,6 @@ spec:
       - name: varlog
         hostPath:
           path: /var/log
-      - name: varlibdockercontainers
+      - name: dockercontainerlogdirectory
         hostPath:
           path: /var/lib/docker/containers

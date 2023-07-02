@@ -17,7 +17,8 @@ spec:
         name: kibana
     spec:
       containers:
-       - image: bitnami/kibana:7.2.0
+       #- image: bitnami/kibana:7.2.0
+       - image: bitnami/kibana:8.8.2
          name: kibana
          resources:
            limits:
