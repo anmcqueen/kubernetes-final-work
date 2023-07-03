@@ -66,9 +66,23 @@ argocd admin initial-password -n argocd
 # argocd account update-password
 # В интерфейсе применить argoCD/argoCD-application-helm.yaml
 
-# Vault
+# Consul
 helm repo add hashicorp https://helm.releases.hashicorp.com
-helm pull hashicorp/consul
-tar zxf consul-1.2.0.tgz
-rm consul-1.2.0.tgz
+#helm pull hashicorp/consul
+#tar zxf consul-1.2.0.tgz
+#rm consul-1.2.0.tgz
 helm upgrade --install --create-namespace consul -n vault consul --values consul/values.yaml
+# Vault
+helm pull hashicorp/vault
+#tar zxf vault-0.25.0.tgz
+#rm vault-0.25.0.tgz
+helm upgrade --install --create-namespace vault -n vault vault --values vault/values.yaml
+#_________________________________________
+# Consul again
+elm upgrade --install --create-namespace consul -n vault hashicorp/consul --values helm-consul-values.yaml
+# Vault again
+helm upgrade --install --create-namespace vault -n vault hashicorp/vault --values helm-vault-values.yaml
+# Consul again
+helm upgrade --install consul hashicorp/consul --values helm-consul-values.yaml # +++++
+# Vault again
+helm upgrade --install vault hashicorp/vault --values helm-vault-values.yaml
