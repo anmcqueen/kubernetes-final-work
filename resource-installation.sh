@@ -39,11 +39,12 @@ helm repo add prometheus-community https://prometheus-community.github.io/helm-c
 helm upgrade --install --create-namespace --values monitoring/prometheus-values.yaml prometheus -n monitoring prometheus-community/prometheus
 ##kl apply -f monitoring/prometheus-ingress-no-tls.yaml
 # Loki & Promtail
+helm repo add grafana https://grafana.github.io/helm-charts
 helm upgrade --install --create-namespace --values monitoring/loki-values.yaml loki -n monitoring grafana/loki
 kl apply -f monitoring/loki-ingress-no-tls.yaml
 helm upgrade --install --create-namespace --values monitoring/promtail-values.yaml promtail -n monitoring grafana/promtail
 # Grafana
-helm repo add grafana https://grafana.github.io/helm-charts
+#helm repo add grafana https://grafana.github.io/helm-charts
 helm upgrade --install --create-namespace --values monitoring/grafana-values.yaml grafana -n monitoring grafana/grafana
 kl apply -f monitoring/grafana-certificates.yaml
 kl apply -f monitoring/grafana-ingress.yaml
@@ -54,6 +55,7 @@ kl get secret -n monitoring grafana -o json
 # Настраиваем DataSource Prometheus: prometheus-server:80
 # Настраиваем DataSource Loki: loki.anynamefits.ru
 # Настраиваем Dashboards
+# При проблемах с отображением дашборда с логами помогает перезагрузить поды promtail.
 
 
 # ArgoCD
@@ -61,4 +63,12 @@ kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 kl apply -f argoCD/argoCD-ingress.yaml
 argocd admin initial-password -n argocd
+# argocd account update-password
 # В интерфейсе применить argoCD/argoCD-application-helm.yaml
+
+# Vault
+helm repo add hashicorp https://helm.releases.hashicorp.com
+helm pull hashicorp/consul
+tar zxf consul-1.2.0.tgz
+rm consul-1.2.0.tgz
+helm upgrade --install --create-namespace consul -n vault consul --values consul/values.yaml
