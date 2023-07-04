@@ -11,7 +11,7 @@ curl -sSL https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
 yc init
 # Подключение к кластеру sock-shop-cluster
 yc managed-kubernetes cluster \
-  get-credentials sock-shop-cluster \
+  get-credentials sock-shop-neo \
   --external
 
 # Установка ingress-nginx
