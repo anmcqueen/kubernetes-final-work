@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: vault
+  name: vault-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: vault.anynamefits.ru
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: vault
+            port:
+              number: 8200
+  tls:
+  - secretName: vault-cert-production
+    hosts:
+      - vault.anynamefits.ru
