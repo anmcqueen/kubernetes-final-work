@@ -34,10 +34,13 @@ helm upgrade --install --create-namespace sock-shop -n sock-shop helm-charts/soc
 
 
 # Monitoring & Logging
-# Prometheus
+# Prometheus operator
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-helm upgrade --install --create-namespace --values monitoring/prometheus-values.yaml prometheus -n monitoring prometheus-community/prometheus
-##kl apply -f monitoring/prometheus-ingress-no-tls.yaml
+helm upgrade --install --create-namespace prometheus-operator -n monitoring prometheus-community/kube-prometheus-stack
+kl apply -f monitoring/prometheus-certificates.yaml
+kl apply -f monitoring/prometheus-ingress.yaml
+# Applying ServiceMonitors for sock-shop services
+kl apply -f monitoring/service-monitorings
 # Loki & Promtail
 helm upgrade --install --create-namespace --values monitoring/loki-values.yaml loki -n monitoring grafana/loki
 kl apply -f monitoring/loki-ingress-no-tls.yaml
@@ -51,8 +54,8 @@ kl apply -f monitoring/grafana-ingress.yaml
 kubectl get secret --namespace monitoring grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
 
 # Затем заходим в grafana https://grafana.anynamefits.ru
-# Настраиваем DataSource Prometheus: prometheus-server:80
-# Настраиваем DataSource Loki: loki.anynamefits.ru
+# Настраиваем DataSource Prometheus: http://prometheus-operated:9090
+# Настраиваем DataSource Loki: http://loki.anynamefits.ru
 # Настраиваем Dashboards
 
 

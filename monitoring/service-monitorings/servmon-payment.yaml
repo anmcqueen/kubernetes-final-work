@@ -1,0 +1,18 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: sock-shop-payment
+  labels:
+    release: prometheus-operator
+  namespace: monitoring
+spec:
+  jobLabel: payment-metrics
+  selector:
+    matchLabels:
+      name: payment
+  namespaceSelector:
+    matchNames:
+    - sock-shop
+  endpoints:
+  - targetPort: 8080
+    path: /metrics
