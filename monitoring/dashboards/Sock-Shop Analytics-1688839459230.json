@@ -115,7 +115,8 @@
     },
     {
       "datasource": {
-        "uid": "prometheus"
+        "type": "prometheus",
+        "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
       },
       "fieldConfig": {
         "defaults": {
@@ -180,9 +181,22 @@
             "uid": "prometheus"
           },
           "expr": "rate(request_duration_seconds_count{name=\"orders\",method=\"POST\"}[1h]) *24*60*60",
+          "hide": true,
           "intervalFactor": 1,
           "refId": "A",
           "step": 30
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "editorMode": "builder",
+          "expr": "rate(request_duration_seconds_count{container=\"orders\", method=\"POST\"}[1h]) * 24 * 60 * 60",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "B"
         }
       ],
       "title": "Projected number of orders per day",
@@ -190,7 +204,8 @@
     },
     {
       "datasource": {
-        "uid": "prometheus"
+        "type": "prometheus",
+        "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
       },
       "fieldConfig": {
         "defaults": {
@@ -255,9 +270,22 @@
             "uid": "prometheus"
           },
           "expr": "request_duration_seconds_count{name=\"user\", route=\"login\",status_code=\"200\"}",
+          "hide": true,
           "intervalFactor": 1,
           "refId": "A",
           "step": 30
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "editorMode": "builder",
+          "expr": "request_duration_seconds_count{container=\"user\", route=\"login\", status_code=\"200\"}",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "B"
         }
       ],
       "title": "# Logins",
@@ -301,8 +329,8 @@
     ]
   },
   "timezone": "browser",
-  "title": "Sock-Shop Analytics 2",
+  "title": "Sock-Shop Analytics",
   "uid": "d9db22a6-af05-4085-8c86-cdff163a72ec",
-  "version": 2,
+  "version": 5,
   "weekStart": ""
 }
