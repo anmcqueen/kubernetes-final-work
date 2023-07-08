@@ -48,7 +48,7 @@ helm upgrade --install --create-namespace --values monitoring/grafana-values.yam
 kl apply -f monitoring/grafana-certificates.yaml
 kl apply -f monitoring/grafana-ingress.yaml
 # Получим логин-пароль из секрета grafana
-kl get secret -n monitoring grafana -o json
+kubectl get secret --namespace monitoring grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
 
 # Затем заходим в grafana https://grafana.anynamefits.ru
 # Настраиваем DataSource Prometheus: prometheus-server:80
