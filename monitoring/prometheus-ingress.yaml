@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: monitoring
+  name: prometheus-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: prometheus.anynamefits.ru
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: prometheus-operated
+            port:
+              number: 9090
+  tls:
+  - secretName: prometheus-cert-production
+    hosts:
+      - prometheus.anynamefits.ru

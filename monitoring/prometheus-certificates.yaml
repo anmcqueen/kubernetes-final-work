@@ -1,0 +1,28 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: prometheus-cert-staging
+  namespace: monitoring
+spec:
+  secretName: prometheus-cert-staging
+  issuerRef:
+    name: letsencrypt-staging
+    kind: ClusterIssuer
+  commonName: prometheus.anynamefits.ru
+  dnsNames:
+  - prometheus.anynamefits.ru
+  
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: prometheus-cert-production
+  namespace: monitoring
+spec:
+  secretName: prometheus-cert-production
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer
+  commonName: prometheus.anynamefits.ru
+  dnsNames:
+  - prometheus.anynamefits.ru

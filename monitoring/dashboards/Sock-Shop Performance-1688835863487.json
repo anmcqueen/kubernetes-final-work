@@ -1,0 +1,2160 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+        },
+        "enable": true,
+        "expr": "heptio_eventrouter_normal_total{reason=\"ChaosEngineInitialized\", involved_object_namespace=\"litmus\",involved_object_name=\"orders-pod-memory-hog\", involved_object_kind=\"ChaosEngine\"} - on () (heptio_eventrouter_normal_total{reason=\"ChaosEngineCompleted\", involved_object_namespace=\"litmus\",involved_object_name=\"orders-pod-memory-hog\", involved_object_kind=\"ChaosEngine\"} OR on() vector(0))",
+        "hide": false,
+        "iconColor": "#F2CC0C",
+        "limit": 100,
+        "name": "orders-pod-memory-hog",
+        "showIn": 0,
+        "step": "30s",
+        "tagKeys": "Chaos-orders-pod-memory-hog",
+        "tags": [],
+        "textFormat": "",
+        "titleFormat": "orders-pod-memory-hog",
+        "type": "tags"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+        },
+        "enable": true,
+        "expr": "heptio_eventrouter_normal_total{reason=\"ChaosEngineInitialized\",involved_object_name=\"catalogue-pod-cpu-hog\",involved_object_namespace=\"litmus\", involved_object_kind=\"ChaosEngine\"} - on () (heptio_eventrouter_normal_total{reason=\"ChaosEngineCompleted\", involved_object_namespace=\"litmus\",involved_object_name=\"catalogue-pod-cpu-hog\",involved_object_kind=\"ChaosEngine\"} OR on() vector(0))",
+        "hide": false,
+        "iconColor": "#E0B400",
+        "limit": 100,
+        "name": "catalogue-pod-cpu-hog",
+        "showIn": 0,
+        "step": "30s",
+        "tagKeys": "Chaos-catalogue-pod-cpu-hog",
+        "tags": [],
+        "titleFormat": "catalogue-pod-cpu-hog",
+        "type": "tags"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+        },
+        "enable": true,
+        "expr": "heptio_eventrouter_normal_total{reason=\"ChaosEngineInitialized\", involved_object_namespace=\"litmus\",involved_object_name=\"catalogue-node-cpu-hog\", involved_object_kind=\"ChaosEngine\"} - on () (heptio_eventrouter_normal_total{reason=\"ChaosEngineCompleted\", involved_object_namespace=\"litmus\",involved_object_name=\"catalogue-node-cpu-hog\", involved_object_kind=\"ChaosEngine\"} OR on() vector(0))",
+        "hide": false,
+        "iconColor": "#E0B400",
+        "limit": 100,
+        "name": "catalogue-node-cpu-hog",
+        "showIn": 0,
+        "step": "30s",
+        "tagKeys": "Chaos-catalogue-node-cpu-hog",
+        "tags": [],
+        "titleFormat": "catalogue-node-cpu-hog",
+        "type": "tags"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+        },
+        "enable": true,
+        "expr": "heptio_eventrouter_normal_total{reason=\"ChaosEngineInitialized\", involved_object_namespace=\"litmus\",involved_object_name=\"orders-node-memory-hog\", involved_object_kind=\"ChaosEngine\"} - on () (heptio_eventrouter_normal_total{reason=\"ChaosEngineCompleted\", involved_object_namespace=\"litmus\",involved_object_name=\"orders-node-memory-hog\", involved_object_kind=\"ChaosEngine\"} OR on() vector(0))",
+        "hide": false,
+        "iconColor": "#E0B400",
+        "limit": 100,
+        "name": "orders-node-memory-hog",
+        "showIn": 0,
+        "step": "30s",
+        "tagKeys": "Chaos-orders-node-memory-hog",
+        "tags": [],
+        "titleFormat": "orders-node-memory-hog",
+        "type": "tags"
+      },
+      {
+        "$$hashKey": "object:258",
+        "builtIn": 1,
+        "datasource": {
+          "type": "prometheus",
+          "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "limit": 100,
+        "name": "Annotations & Alerts",
+        "showIn": 0,
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "Monitor and visualise Sock Shop application metrics metrics interleaved with chaos events and chaos exporter metrics from LitmusChaos. ",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "gnetId": 13358,
+  "graphTooltip": 0,
+  "id": 9,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "collapsed": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 20,
+      "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Chaos Metrics",
+      "type": "row"
+    },
+    {
+      "collapsed": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 1
+      },
+      "id": 21,
+      "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Orders Metrics",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 2
+      },
+      "hiddenSeries": false,
+      "id": 5,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "9.5.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:123",
+          "alias": "2xx",
+          "lines": true
+        },
+        {
+          "$$hashKey": "object:272",
+          "alias": "orders-pod-memory-hog",
+          "color": "#C4162A",
+          "fillGradient": 7,
+          "steppedLine": true,
+          "yaxis": 2
+        },
+        {
+          "$$hashKey": "object:282",
+          "alias": "orders-node-memory-hog",
+          "color": "#C4162A",
+          "fillGradient": 7,
+          "steppedLine": true,
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "expr": "sum(rate(request_duration_seconds_count{job=\"orders\",status_code=~\"2..\",route!=\"metrics\"}[1m])) * 100",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "2xx",
+          "refId": "A",
+          "step": 2
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "expr": "sum(rate(request_duration_seconds_count{job=\"orders\",status_code=~\"4.+|5.+\"}[1m])) * 100",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "4xx/5xx",
+          "refId": "B",
+          "step": 2
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "expr": "heptio_eventrouter_normal_total{reason=\"ChaosInject\",involved_object_name=\"orders-pod-memory-hog\", involved_object_namespace=\"litmus\", involved_object_kind=\"ChaosEngine\"} - on () (heptio_eventrouter_normal_total{reason=\"ChaosEngineCompleted\",involved_object_name=\"orders-pod-memory-hog\", involved_object_namespace=\"litmus\", involved_object_kind=\"ChaosEngine\"} OR on() vector(0))",
+          "interval": "",
+          "legendFormat": "orders-pod-memory-hog",
+          "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "expr": "heptio_eventrouter_normal_total{reason=\"ChaosInject\",involved_object_name=\"orders-node-memory-hog\", involved_object_namespace=\"litmus\", involved_object_kind=\"ChaosEngine\"} - on () (heptio_eventrouter_normal_total{reason=\"ChaosEngineCompleted\",involved_object_name=\"orders-node-memory-hog\", involved_object_namespace=\"litmus\", involved_object_kind=\"ChaosEngine\"} OR on() vector(0))",
+          "interval": "",
+          "legendFormat": "orders-node-memory-hog",
+          "refId": "F"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Orders QPS",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:149",
+          "format": "ops",
+          "label": "QPS (1 min)",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:150",
+          "format": "short",
+          "label": "CHAOS",
+          "logBase": 2,
+          "max": "1",
+          "min": "0",
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 2
+      },
+      "hiddenSeries": false,
+      "id": 6,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "9.5.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:115",
+          "alias": "99th quantile",
+          "lines": true
+        },
+        {
+          "$$hashKey": "object:116",
+          "alias": "50th quantile",
+          "lines": true
+        },
+        {
+          "$$hashKey": "object:117",
+          "alias": "Mean",
+          "lines": true
+        },
+        {
+          "$$hashKey": "object:183",
+          "alias": "orders-pod-memory-hog",
+          "color": "#C4162A",
+          "fillGradient": 7,
+          "steppedLine": true,
+          "yaxis": 2
+        },
+        {
+          "$$hashKey": "object:193",
+          "alias": "orders-node-memory-hog",
+          "color": "#C4162A",
+          "fillGradient": 7,
+          "steppedLine": true,
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "expr": "histogram_quantile(0.99, sum(rate(request_duration_seconds_bucket{job=\"orders\"}[1m])) by (name, le))",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "99th quantile",
+          "refId": "A",
+          "step": 2
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "expr": "histogram_quantile(0.5, sum(rate(request_duration_seconds_bucket{job=\"orders\"}[1m])) by (name, le))",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "50th quantile",
+          "refId": "B",
+          "step": 2
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "expr": "sum(rate(request_duration_seconds_sum{job=\"orders\"}[1m])) / sum(rate(request_duration_seconds_count{job=\"orders\"}[1m]))",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "Mean",
+          "refId": "C",
+          "step": 2
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "expr": "heptio_eventrouter_normal_total{reason=\"ChaosInject\",involved_object_name=\"orders-pod-memory-hog\", involved_object_namespace=\"litmus\", involved_object_kind=\"ChaosEngine\"} - on () (heptio_eventrouter_normal_total{reason=\"ChaosEngineCompleted\",involved_object_name=\"orders-pod-memory-hog\", involved_object_namespace=\"litmus\", involved_object_kind=\"ChaosEngine\"} OR on() vector(0))",
+          "interval": "",
+          "legendFormat": "orders-pod-memory-hog",
+          "refId": "E"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "expr": "heptio_eventrouter_normal_total{reason=\"ChaosInject\",involved_object_name=\"orders-node-memory-hog\", involved_object_namespace=\"litmus\", involved_object_kind=\"ChaosEngine\"} - on () (heptio_eventrouter_normal_total{reason=\"ChaosEngineCompleted\",involved_object_name=\"orders-node-memory-hog\", involved_object_namespace=\"litmus\", involved_object_kind=\"ChaosEngine\"} OR on() vector(0))",
+          "interval": "",
+          "legendFormat": "orders-node-memory-hog",
+          "refId": "G"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Orders latency",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:155",
+          "format": "s",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:156",
+          "format": "short",
+          "label": "CHAOS",
+          "logBase": 2,
+          "max": "1",
+          "min": "0",
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "collapsed": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 9
+      },
+      "id": 22,
+      "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Catalogue Metrics",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 10
+      },
+      "hiddenSeries": false,
+      "id": 1,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "hideEmpty": false,
+        "max": false,
+        "min": false,
+        "rightSide": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": false,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "9.5.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:414",
+          "alias": "2xx",
+          "lines": true
+        },
+        {
+          "$$hashKey": "object:415",
+          "alias": "catalogue-pod-cpu-hog",
+          "color": "#C4162A",
+          "fillGradient": 7,
+          "lines": true,
+          "steppedLine": true,
+          "yaxis": 2
+        },
+        {
+          "$$hashKey": "object:525",
+          "alias": "catalogue-node-cpu-hog",
+          "color": "#C4162A",
+          "fillGradient": 7,
+          "lines": true,
+          "steppedLine": true,
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "expr": "sum(rate(request_duration_seconds_count{job=\"catalogue\",status_code=~\"2..\",route!=\"metrics\"}[1m])) * 100",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "2xx",
+          "refId": "A",
+          "step": 2
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "expr": "sum(rate(request_duration_seconds_count{job=\"catalogue\",status_code=~\"4.+|5.+\"}[1m])) * 100",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "4xx/5xx",
+          "refId": "B",
+          "step": 2
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "expr": "heptio_eventrouter_normal_total{reason=\"ChaosInject\",involved_object_name=\"catalogue-pod-cpu-hog\", involved_object_namespace=\"litmus\", involved_object_kind=\"ChaosEngine\"} - on () (heptio_eventrouter_normal_total{reason=\"ChaosEngineCompleted\",involved_object_name=\"catalogue-pod-cpu-hog\", involved_object_namespace=\"litmus\", involved_object_kind=\"ChaosEngine\"} OR on() vector(0))",
+          "interval": "",
+          "legendFormat": "catalogue-pod-cpu-hog",
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "expr": "heptio_eventrouter_normal_total{reason=\"ChaosInject\",involved_object_name=\"catalogue-node-cpu-hog\", involved_object_namespace=\"litmus\", involved_object_kind=\"ChaosEngine\"} - on () (heptio_eventrouter_normal_total{reason=\"ChaosEngineCompleted\",involved_object_name=\"catalogue-node-cpu-hog\", involved_object_namespace=\"litmus\", involved_object_kind=\"ChaosEngine\"} OR on() vector(0))",
+          "interval": "",
+          "legendFormat": "catalogue-node-cpu-hog",
+          "refId": "E"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Catalogue QPS",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:442",
+          "format": "ops",
+          "label": "QPS (1 min)",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:443",
+          "format": "short",
+          "label": "CHAOS",
+          "logBase": 2,
+          "max": "1",
+          "min": "0",
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 10
+      },
+      "hiddenSeries": false,
+      "id": 2,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "9.5.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:959",
+          "alias": "99th quantile",
+          "lines": true
+        },
+        {
+          "$$hashKey": "object:960",
+          "alias": "50th quantile",
+          "lines": true
+        },
+        {
+          "$$hashKey": "object:961",
+          "alias": "Mean",
+          "lines": true
+        },
+        {
+          "$$hashKey": "object:962",
+          "alias": "catalogue-pod-cpu-hog",
+          "color": "#C4162A",
+          "fillGradient": 7,
+          "lines": true,
+          "steppedLine": true,
+          "yaxis": 2
+        },
+        {
+          "$$hashKey": "object:1053",
+          "alias": "catalogue-node-cpu-hog",
+          "color": "#C4162A",
+          "fillGradient": 7,
+          "lines": true,
+          "steppedLine": true,
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "expr": "histogram_quantile(0.99, sum(rate(request_duration_seconds_bucket{job=\"catalogue\"}[1m])) by (name, le))",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "99th quantile",
+          "refId": "A",
+          "step": 2
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "expr": "histogram_quantile(0.5, sum(rate(request_duration_seconds_bucket{job=\"catalogue\"}[1m])) by (name, le))",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "50th quantile",
+          "refId": "B",
+          "step": 2
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "expr": "sum(rate(request_duration_seconds_sum{job=\"catalogue\"}[1m])) / sum(rate(request_duration_seconds_count{job=\"catalogue\"}[1m]))",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "Mean",
+          "refId": "C",
+          "step": 2
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "expr": "heptio_eventrouter_normal_total{reason=\"ChaosInject\",involved_object_name=\"catalogue-pod-cpu-hog\", involved_object_namespace=\"litmus\", involved_object_kind=\"ChaosEngine\"} - on () (heptio_eventrouter_normal_total{reason=\"ChaosEngineCompleted\",involved_object_name=\"catalogue-pod-cpu-hog\", involved_object_namespace=\"litmus\", involved_object_kind=\"ChaosEngine\"} OR on() vector(0))",
+          "interval": "",
+          "legendFormat": "catalogue-pod-cpu-hog",
+          "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "expr": "heptio_eventrouter_normal_total{reason=\"ChaosInject\",involved_object_name=\"catalogue-node-cpu-hog\", involved_object_namespace=\"litmus\", involved_object_kind=\"ChaosEngine\"} - on () (heptio_eventrouter_normal_total{reason=\"ChaosEngineCompleted\",involved_object_name=\"catalogue-node-cpu-hog\", involved_object_namespace=\"litmus\", involved_object_kind=\"ChaosEngine\"} OR on() vector(0))",
+          "interval": "",
+          "legendFormat": "catalogue-node-cpu-hog",
+          "refId": "F"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Catalogue latency",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:1001",
+          "format": "s",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:1002",
+          "format": "short",
+          "label": "CHAOS",
+          "logBase": 2,
+          "max": "1",
+          "min": "0",
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "collapsed": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 18
+      },
+      "id": 23,
+      "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Payement Metrics",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 19
+      },
+      "hiddenSeries": false,
+      "id": 7,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "9.5.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "expr": "sum(rate(request_duration_seconds_count{job=\"payment\",status_code=~\"2..\",route!=\"metrics\"}[1m])) * 100",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "2xx",
+          "refId": "A",
+          "step": 2
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "expr": "sum(rate(request_duration_seconds_count{job=\"payment\",status_code=~\"4.+|5.+\"}[1m])) * 100",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "4xx/5xx",
+          "refId": "B",
+          "step": 2
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Payment QPS",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:1295",
+          "format": "ops",
+          "label": "QPS (1 min)",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:1296",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 19
+      },
+      "hiddenSeries": false,
+      "id": 8,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "9.5.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "expr": "histogram_quantile(0.99, sum(rate(request_duration_seconds_bucket{job=\"payment\"}[1m])) by (name, le))",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "99th quantile",
+          "refId": "A",
+          "step": 2
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "expr": "histogram_quantile(0.5, sum(rate(request_duration_seconds_bucket{job=\"payment\"}[1m])) by (name, le))",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "50th quantile",
+          "refId": "B",
+          "step": 2
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "expr": "sum(rate(request_duration_seconds_sum{job=\"payment\"}[1m])) / sum(rate(request_duration_seconds_count{job=\"payment\"}[1m]))",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "Mean",
+          "refId": "C",
+          "step": 2
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Payment latency",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "s",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "collapsed": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 26
+      },
+      "id": 24,
+      "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Shipping Metrics",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 27
+      },
+      "hiddenSeries": false,
+      "id": 9,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "9.5.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "expr": "sum(rate(request_duration_seconds_count{job=\"shipping\",status_code=~\"2..\",route!=\"metrics\"}[1m])) * 100",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "2xx",
+          "refId": "A",
+          "step": 10
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "expr": "sum(rate(request_duration_seconds_count{job=\"shipping\",status_code=~\"4.+|5.+\"}[1m])) * 100",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "4xx/5xx",
+          "refId": "B",
+          "step": 10
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Shipping QPS",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:1578",
+          "format": "ops",
+          "label": "QPS (1 min)",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:1579",
+          "format": "short",
+          "label": "",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 27
+      },
+      "hiddenSeries": false,
+      "id": 10,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "9.5.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "expr": "histogram_quantile(0.99, sum(rate(request_duration_seconds_bucket{job=\"shipping\"}[1m])) by (name, le))",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "99th quantile",
+          "refId": "A",
+          "step": 10
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "expr": "histogram_quantile(0.5, sum(rate(request_duration_seconds_bucket{job=\"shipping\"}[1m])) by (name, le))",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "50th quantile",
+          "refId": "B",
+          "step": 10
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "expr": "sum(rate(request_duration_seconds_sum{job=\"shipping\"}[1m])) / sum(rate(request_duration_seconds_count{job=\"shipping\"}[1m]))",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "Mean",
+          "refId": "C",
+          "step": 10
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Shipping latency",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "s",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "collapsed": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 34
+      },
+      "id": 25,
+      "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "User Metrics",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 35
+      },
+      "hiddenSeries": false,
+      "id": 11,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "9.5.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "expr": "sum(rate(request_duration_seconds_count{job=\"user\",status_code=~\"2..\",route!=\"metrics\"}[1m])) * 100",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "2xx",
+          "refId": "A",
+          "step": 10
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "expr": "sum(rate(request_duration_seconds_count{job=\"user\",status_code=~\"4.+|5.+\"}[1m])) * 100",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "4xx/5xx",
+          "refId": "B",
+          "step": 10
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "User QPS",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "ops",
+          "label": "QPS (1 min)",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 35
+      },
+      "hiddenSeries": false,
+      "id": 12,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "9.5.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "expr": "histogram_quantile(0.99, sum(rate(request_duration_seconds_bucket{job=\"user\"}[1m])) by (name, le))",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "99th quantile",
+          "refId": "A",
+          "step": 10
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "expr": "histogram_quantile(0.5, sum(rate(request_duration_seconds_bucket{job=\"user\"}[1m])) by (name, le))",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "50th quantile",
+          "refId": "B",
+          "step": 10
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "expr": "sum(rate(request_duration_seconds_sum{job=\"user\"}[1m])) / sum(rate(request_duration_seconds_count{job=\"user\"}[1m]))",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "Mean",
+          "refId": "C",
+          "step": 10
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "User latency",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "s",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "collapsed": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 42
+      },
+      "id": 26,
+      "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Frontend Metrics",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 43
+      },
+      "hiddenSeries": false,
+      "id": 13,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "9.5.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "expr": "sum(rate(request_duration_seconds_count{job=\"front-end\",status_code=~\"2..\",route!=\"metrics\"}[1m])) * 100",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "2xx",
+          "refId": "A",
+          "step": 10
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "expr": "sum(rate(request_duration_seconds_count{job=\"front-end\",status_code=~\"4.+|5.+\"}[1m])) * 100",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "4xx/5xx",
+          "refId": "B",
+          "step": 10
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Frontend QPS",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "ops",
+          "label": "QPS (1 min)",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 43
+      },
+      "hiddenSeries": false,
+      "id": 14,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "9.5.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "expr": "histogram_quantile(0.99, sum(rate(request_duration_seconds_bucket{job=\"front-end\"}[1m])) by (name, le))",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "99th quantile",
+          "refId": "A",
+          "step": 10
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "expr": "histogram_quantile(0.5, sum(rate(request_duration_seconds_bucket{job=\"front-end\"}[1m])) by (name, le))",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "50th quantile",
+          "refId": "B",
+          "step": 10
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "expr": "sum(rate(request_duration_seconds_sum{job=\"front-end\"}[1m])) / sum(rate(request_duration_seconds_count{job=\"front-end\"}[1m]))",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "Mean",
+          "refId": "C",
+          "step": 10
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Frontend latency",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "s",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "collapsed": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 50
+      },
+      "id": 27,
+      "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Cart Metrics",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 51
+      },
+      "hiddenSeries": false,
+      "id": 3,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "9.5.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "expr": "sum(rate(request_duration_seconds_count{job=\"carts\",status_code=~\"2..\",route!=\"metrics\"}[1m])) * 100",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "2xx",
+          "refId": "A",
+          "step": 10
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "expr": "sum(rate(request_duration_seconds_count{job=\"carts\",status_code=~\"4.+|5.+\"}[1m])) * 100",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "4xx/5xx",
+          "refId": "B",
+          "step": 10
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Cart QPS",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "ops",
+          "label": "QPS (1 min)",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 51
+      },
+      "hiddenSeries": false,
+      "id": 4,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "9.5.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "expr": "histogram_quantile(0.99, sum(rate(request_duration_seconds_bucket{job=\"carts\"}[1m])) by (name, le))",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "99th quantile",
+          "refId": "A",
+          "step": 10
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "expr": "histogram_quantile(0.5, sum(rate(request_duration_seconds_bucket{job=\"carts\"}[1m])) by (name, le))",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "50th quantile",
+          "refId": "B",
+          "step": 10
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "cb2a77db-dc99-4dff-8b98-35f61800d2b5"
+          },
+          "expr": "sum(rate(request_duration_seconds_sum{job=\"carts\"}[1m])) / sum(rate(request_duration_seconds_count{job=\"carts\"}[1m]))",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "Mean",
+          "refId": "C",
+          "step": 10
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Cart latency",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "s",
+          "logBase": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    }
+  ],
+  "refresh": "10s",
+  "schemaVersion": 38,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-30m",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ],
+    "time_options": [
+      "5m",
+      "15m",
+      "1h",
+      "6h",
+      "12h",
+      "24h",
+      "2d",
+      "7d",
+      "30d"
+    ]
+  },
+  "timezone": "browser",
+  "title": "Sock-Shop Performance",
+  "uid": "sockshopperfornamce",
+  "version": 2,
+  "weekStart": ""
+}
