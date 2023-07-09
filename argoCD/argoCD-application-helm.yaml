@@ -10,7 +10,7 @@ spec:
   source:
     path: helm-charts/sock-shop
     repoURL: 'git@github.com:anmcqueen/kubernetes-final-work.git'
-    targetRevision: dev # TODO перейти на main
+    targetRevision: main
     helm:
       valueFiles:
         - values.yaml

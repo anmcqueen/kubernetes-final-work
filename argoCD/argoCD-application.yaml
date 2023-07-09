@@ -1,3 +1,4 @@
+# неактульная версия для поднятия приложений из манифестов, а не helm
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
