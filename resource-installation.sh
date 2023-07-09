@@ -113,7 +113,7 @@ kubectl exec -it vault-0 -n vault -- vault kv put secrets/sock-shop/mysql-access
 kubectl exec -it vault-0 -n vault -- vault auth enable kubernetes
 # Настраиваем доступ к API Kubernetes
 export K8S_HOST=$(kubectl cluster-info | grep 'Kubernetes control' | awk '/https/ {print $NF}' | sed 's/\x1b\[[0-9;]*m//g')
-kubectl exec -it vault-0 -n vault -- vault write auth/kubernetes/config kubernetes_host="K8S_HOST:443"
+kubectl exec -it vault-0 -n vault -- vault write auth/kubernetes/config kubernetes_host="$K8S_HOST"
 # Создаем политику
 kubectl exec -it vault-0 -n vault -- vault policy write service - <<EOF
 path "secrets/*" {
