@@ -130,7 +130,7 @@ kubectl exec -it vault-0 -n vault -- vault write auth/kubernetes/role/service \
 #kubectl exec -it vault-0 -n vault -- vault read otus/otus-ro/config
 #kubectl exec -it vault-0 -n vault -- vault kv get secrets/sock-shop/mysql-access
 
-
+# kl logs catalogue-db-669948676c-b8q64 -n sock-shop2 --container vault-agent-init
 
 
 

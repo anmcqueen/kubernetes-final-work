@@ -14,13 +14,20 @@ spec:
     metadata:
       labels:
         name: catalogue-db
+      annotations:
+        vault.hashicorp.com/agent-inject: 'true'
+        vault.hashicorp.com/agent-limits-cpu: 250m
+        vault.hashicorp.com/role: "service"
+        vault.hashicorp.com/agent-inject-secret-mysql_pass: "secrets/sock-shop/mysql-access"
+        vault.hashicorp.com/agent-inject-template-mysql_pass: |
+          {{"{{ with secret \"secrets/sock-shop/mysql-access\" -}}{{ .Data.password }}{{ end }}"}}
     spec:
       containers:
       - name: catalogue-db
         image: {{if .Values.global.registry}}{{ .Values.global.registry }}/{{end}}{{ .Values.cataloguedb.image.repo }}:{{ .Values.cataloguedb.image.tag }}
         env:
           - name: MYSQL_ROOT_PASSWORD
-            valueFrom:
+            valueFrom: ## TODO брать пароль из полученного секрета / мб запихать в этот секрет конфигурацию для получения секрета? vault.hashicorp.com/agent-inject-secret-mysql-access-key: 'true'
               secretKeyRef:
                 name: mysql-access-key
                 key: key
