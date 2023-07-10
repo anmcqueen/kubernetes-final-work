@@ -25,13 +25,22 @@ spec:
       containers:
       - name: catalogue-db
         image: {{if .Values.global.registry}}{{ .Values.global.registry }}/{{end}}{{ .Values.cataloguedb.image.repo }}:{{ .Values.cataloguedb.image.tag }}
+        command:
+          - export MYSQL_ROOT_PASSWORD=$(cat /vault/secrets/mysql_pass)
+          - echo $MYSQL_ROOT_PASSWORD
+        #  - sh
+        #  - '-c'
+        #args:
+        #  - export MYSQL_ROOT_PASSWORD=$(cat /vault/secrets/mysql_pass)
         env:
-          - name: MYSQL_ROOT_PASSWORD
-            valueFrom: ## TODO брать пароль из полученного секрета / мб запихать в этот секрет конфигурацию для получения секрета? vault.hashicorp.com/agent-inject-secret-mysql-access-key: 'true'
-              secretKeyRef:
-                name: mysql-access-key
-                key: key
+          #- name: MYSQL_ROOT_PASSWORD
+          #  valueFrom:
+          #    secretKeyRef:
+          #      name: mysql-access-key
+          #      key: key
           - name: MYSQL_DATABASE
+            value: socksdb
+          - name: MYSQL_ROOT_PASSWORD
             value: socksdb
         ports:
         - name: mysql
