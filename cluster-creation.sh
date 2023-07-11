@@ -1,10 +1,14 @@
-# Здесь будет скрипт для автоматического создания кластера
+# Скрипт для автоматического создания кластера
+# Установка Яндекс CLI
 curl -sSL https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
+yc init
 
+# Создание Network
 yc vpc network create --name network-1 \
   --description "Sock Shop project network" \
   --folder-id enpncltd04hlh8fj75ba
 
+# Создание кластера kubernetes (master)
 yc managed-kubernetes cluster create \
   --name sock-shop-neo \
   --network-name network-1 \
@@ -20,8 +24,10 @@ yc managed-kubernetes cluster create \
   --weekly-maintenance-window 'days=[saturday],start=00:00,duration=3h' \
   --enable-network-policy
 
+# Добавление контекста кластера в kubeconfig '/home/ana/.kube/config'
 yc managed-kubernetes cluster get-credentials sock-shop-neo --external
 
+# Создание нод кластера kubernetes
 yc managed-kubernetes node-group create \
   --cluster-name sock-shop-neo \
   --cores 4 \
@@ -35,6 +41,12 @@ yc managed-kubernetes node-group create \
   --name cluster-nodes \
   --network-acceleration-type standard \
   --platform-id standard-v3 \
+  --public-ip \
   --container-runtime containerd \
   --version 1.24 \
   --metadata-from-file ssh-keys=/home/ana/.ssh/id_ed25519
+
+# Подключение к кластеру sock-shop-neo
+yc managed-kubernetes cluster \
+  get-credentials sock-shop-neo \
+  --external

@@ -11,3 +11,18 @@ spec:
   commonName: argocd.anynamefits.ru
   dnsNames:
   - argocd.anynamefits.ru
+  
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: argocd-cert-production
+  namespace: argocd
+spec:
+  secretName: argocd-cert-production
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer
+  commonName: argocd.anynamefits.ru
+  dnsNames:
+  - argocd.anynamefits.ru
