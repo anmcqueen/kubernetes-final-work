@@ -12,3 +12,6 @@
 - Grafana - https://grafana.anynamefits.ru
 - Prometheus - https://prometheus.anynamefits.ru
 - Vaunt - https://vault.anynamefits.ru
+
+#### Скриншоты страниц можно посмотреть в папке screenshots 
+![sock shop main page](https://github.com/anmcqueen/kubernetes-final-work/assets/126611281/c61b91e5-2c72-4a10-b451-c6870eb5b4d3)
