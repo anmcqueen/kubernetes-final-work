@@ -40,7 +40,6 @@ spec:
         - |
           export pass=$(cat /vault/secrets/catalogue_user_pass); 
           export login=$(cat /vault/secrets/catalogue_user_login); 
-          echo $var;
           /app -port={{ .Values.catalogue.containerPort }} -DSN="$login:$pass@tcp(catalogue-db.{{ .Release.Namespace }}.svc.cluster.local:3306)/socksdb"
         {{- if .Values.zipkin.enabled }}
         env:
