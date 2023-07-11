@@ -126,10 +126,13 @@ kubectl exec -it vault-0 -n vault -- vault write auth/kubernetes/role/service \
   bound_service_account_namespaces=* \
   policies=service \
   ttl=24h
+# Далее настраиваем agent-inject в Deployments
 
+# Памятка
+# как просмотреть секреты
 #kubectl exec -it vault-0 -n vault -- vault read otus/otus-ro/config
 #kubectl exec -it vault-0 -n vault -- vault kv get secrets/sock-shop/mysql-access
-
+# работа с контейнерами подов
 # kl logs catalogue-db-669948676c-b8q64 -n sock-shop2 --container vault-agent-init
 # kubectl exec -it pod/catalogue-db-7589575645-2tdfn -n sock-shop2 -c catalogue-db -- sh
 

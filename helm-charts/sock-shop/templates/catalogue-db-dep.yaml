@@ -14,37 +14,20 @@ spec:
     metadata:
       labels:
         name: catalogue-db
-      annotations:
-        vault.hashicorp.com/agent-inject: 'true'
-        vault.hashicorp.com/agent-limits-cpu: 250m
-        vault.hashicorp.com/role: "service"
-        vault.hashicorp.com/agent-inject-secret-mysql_pass: "secrets/sock-shop/mysql-access"
-        vault.hashicorp.com/agent-inject-template-mysql_pass: |
-          {{"{{ with secret \"secrets/sock-shop/mysql-access\" -}}{{ .Data.password }}{{ end }}"}}
     spec:
       containers:
       - name: catalogue-db
         image: {{if .Values.global.registry}}{{ .Values.global.registry }}/{{end}}{{ .Values.cataloguedb.image.repo }}:{{ .Values.cataloguedb.image.tag }}
-        command:
-          - export MYSQL_ROOT_PASSWORD=$(cat /vault/secrets/mysql_pass)
-          - echo $MYSQL_ROOT_PASSWORD
-        #  - sh
-        #  - '-c'
-        #args:
-        #  - export MYSQL_ROOT_PASSWORD=$(cat /vault/secrets/mysql_pass)
         env:
-          #- name: MYSQL_ROOT_PASSWORD
-          #  valueFrom:
-          #    secretKeyRef:
-          #      name: mysql-access-key
-          #      key: key
-          - name: MYSQL_DATABASE
-            value: socksdb
           - name: MYSQL_ROOT_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: mysql-access-key
+                key: key
+          - name: MYSQL_DATABASE
             value: socksdb
         ports:
         - name: mysql
           containerPort: 3306
         resources:
 {{ toYaml .Values.cataloguedb.resources | indent 10 }}
-
