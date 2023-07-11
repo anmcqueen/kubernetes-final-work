@@ -12,6 +12,7 @@ spec:
     repoURL: 'git@github.com:anmcqueen/kubernetes-final-work.git'
     targetRevision: main
     helm:
+      releaseName: sock-shop
       valueFiles:
         - values.yaml
   sources: []

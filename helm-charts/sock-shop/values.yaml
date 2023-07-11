@@ -10,6 +10,9 @@ java:
 istio:
     enabled: false
 
+vault:
+    enabled: true
+
 ingress:
     host: 'sock-shop.anynamefits.ru'
     tlsSecretName: 'ssl-cert-production'
