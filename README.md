@@ -33,6 +33,11 @@
 - Grafana - инструмент визуализации данных. В Grafana настроены 2 DataSources: Prometheus и Loki.
 - Дашборды для Grafana лежат в папке ./monitoring/dashboards в виде json-файлов, их можно импортировать. 
 
+### Hashicorp-vault - Хранилище секретов
+- Веб-интерфейс: https://vault.anynamefits.ru
+- Vault хранит секреты для сервиса catalogue в составе приложения sock-shop (логин и пароль от юзера, под которым этот микросервис подключается к БД) ![Снимок экрана от 2023-07-12 22-39-04](https://github.com/anmcqueen/kubernetes-final-work/assets/126611281/ad8d554c-e4e8-4df5-ae92-6b2ba030a737)
+- В Deployment сервиса catalogue, а точнее в его шаблоне (./helm-charts/sock-shop/templates/catalogue-dep.yaml), добавлены аннотации для запуска в поде vault-agent, который достает из Vault необходимые секреты и сохраняет в файлы в контейнере. Затем в spec.args мы записываем содержимое этих файлов в переменные окружения контейнера и используем их для подключения к БД. 
+
 ### Ссылки на ресурсы:
 - Sock-shop - https://sock-shop.anynamefits.ru 
 - ArgoCD - https://argocd.anynamefits.ru
