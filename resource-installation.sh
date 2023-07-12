@@ -92,7 +92,7 @@ kl apply -f argoCD/argoCD-cert.yaml
 kl apply -f argoCD/argoCD-ingress.yaml
 argocd admin initial-password -n argocd
 # argocd account update-password
-# В интерфейсе применить argoCD/argoCD-application-helm.yaml
+# В интерфейсе 1. подключить ArgoCD к текущему репозиторию; 2. применить argoCD/argoCD-application-helm.yaml
 
 
 # 4.1. Установка Sock Shop (вручную, без ArgoCD)
